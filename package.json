@@ -1,0 +1,1 @@
+{"name":"information-gather-skill","version":"1.0.0","private":true,"type":"module","scripts":{"test":"node --test skills/information-gather/assets/template/tests/config.test.mjs tests/release.test.mjs","check:public":"node scripts/audit-public.mjs"},"engines":{"node":">=22"},"license":"MIT","repository":"https://github.com/sxpohh/information-gather-skill"}

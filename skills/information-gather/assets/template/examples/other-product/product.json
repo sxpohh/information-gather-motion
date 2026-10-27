@@ -1,0 +1,13 @@
+{
+ "version":1,"id":"qingji-gather","brand":{"name":"轻记"},
+ "theme":{"background":"#edf2fb","accent":"#4c52ba","ink":"#242440"},
+ "intro":{"title":"把待办和灵感，\n放在一起。","caption":"这是另一款产品的模板示意。","duration":4},
+ "outro":{"title":"轻记，\n让一天有条理。","caption":"换上你的产品，就能接着做。","duration":4},
+ "screens":[{"id":"today","src":"today.svg","alt":"轻记待办示意界面，虚构产品"},{"id":"ideas","src":"ideas.svg","alt":"轻记灵感示意界面，虚构产品"}],
+ "hero":["ideas","today"],
+ "features":[
+  {"id":"tasks","screen":"today","title":"今天要做的，\n一眼看清。","steps":[{"rect":[0.07,0.28,0.86,0.37],"hold":2.5,"caption":"重要的事，留在眼前。"},{"rect":[0.07,0.67,0.86,0.17],"hold":2,"caption":"做完一件，留下一点进展。"}]},
+  {"id":"ideas","screen":"ideas","title":"突然想到的，\n随手记下来。","steps":[{"rect":[0.07,0.25,0.86,0.4],"hold":3,"caption":"灵感不用等，有空再整理。"}]}
+ ],
+ "notice":"虚构产品 · 界面仅作模板示意 · 无旁白"
+}

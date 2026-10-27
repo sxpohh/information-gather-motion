@@ -1,0 +1,27 @@
+{
+  "id": "information-gather",
+  "name": "信息归位",
+  "version": "1.0.0",
+  "date": "2026-10-27",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "motion": [
+    "双机透视入场",
+    "前后交接",
+    "原图重点推近",
+    "多重点平移",
+    "双机归拢"
+  ],
+  "entry": "scripts/create.mjs",
+  "origin": "information-gather skill",
+  "officialHuashuTemplate": false,
+  "dependencies": {
+    "node": ">=22",
+    "huashu-motion-tested": "0.3.1",
+    "browser": "Chrome/Edge",
+    "export": "ffmpeg"
+  }
+}

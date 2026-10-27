@@ -1,0 +1,4 @@
+interface:
+  display_name: "信息归位"
+  short_description: "用真实产品截图制作双机交错、重点推近与结尾归拢的竖屏介绍片"
+  default_prompt: "用 $information-gather 为我的产品制作竖屏介绍片，先对应文案与真实截图中的重点，再生成可编辑预览并检查导出。"

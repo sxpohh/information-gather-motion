@@ -1,0 +1,16 @@
+GSAP 3.14.2
+Copyright 2025 GreenSock. All rights reserved.
+Author: Jack Doyle / GreenSock
+
+GSAP is supplied under the Standard "No Charge" GSAP License, not the MIT
+license that covers the original code in this repository.
+
+Applicable license and official terms:
+https://gsap.com/standard-license/
+https://gsap.com/community/standard-license/
+
+The original copyright/license header in gsap.min.js is retained. The bundled
+distribution is obtained from the official npm gsap@3.14.2 package; its npm
+integrity and the exact file hash are recorded in gsap-source.json.
+
+Do not remove the proprietary notices or relabel this dependency as MIT.
