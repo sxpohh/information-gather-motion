@@ -1,5 +1,6 @@
 MIT License
 
+Copyright (c) 2026 Huashu
 Copyright (c) 2026 sxpohh
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,3 +23,6 @@ SOFTWARE.
 
 Bundled third-party libraries and fonts are excluded from this MIT grant;
 see THIRD_PARTY.md and the dependency-specific notices.
+
+Huashu's copyright applies to reused huashu-motion portions; sxpohh's
+copyright applies to project-specific additions. See docs/PROVENANCE.md.
