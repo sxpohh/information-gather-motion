@@ -75,3 +75,9 @@ node skills/information-gather-motion/scripts/verify.mjs ./my-product-film <huas
 ```
 
 Node测试覆盖配置、防覆盖、素材路径、焦点范围、字幕时间和整帧时长。浏览器检查图片加载、素材哈希、字幕位置、变量修改与正倒序跳转。它们不能替代实际观看或人耳审听；需要看关键帧和正常速度全片，并结合内容判断QA阅读停顿提示。
+
+## License
+
+本项目新增代码和文档采用 [MIT License](LICENSE)；复用的 huashu-motion 代码保留其 MIT 许可。
+
+GSAP、字体等第三方组件采用各自的许可，详见 [THIRD_PARTY.md](THIRD_PARTY.md)。
