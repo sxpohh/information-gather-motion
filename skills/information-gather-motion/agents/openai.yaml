@@ -1,0 +1,4 @@
+interface:
+  display_name: "信息归位 Motion"
+  short_description: "用真实截图制作双机交错、重点推近与结尾归拢的产品介绍动画"
+  default_prompt: "用 $information-gather-motion 做一个产品介绍动画。"
