@@ -9,5 +9,5 @@
   {"id":"tasks","screen":"today","title":"今天要做的，\n一眼看清。","steps":[{"rect":[0.07,0.28,0.86,0.37],"hold":2.5,"caption":"重要的事，留在眼前。"},{"rect":[0.07,0.67,0.86,0.17],"hold":2,"caption":"做完一件，留下一点进展。"}]},
   {"id":"ideas","screen":"ideas","title":"突然想到的，\n随手记下来。","steps":[{"rect":[0.07,0.25,0.86,0.4],"hold":3,"caption":"灵感不用等，有空再整理。"}]}
  ],
- "notice":"虚构产品 · 界面仅作模板示意 · 无旁白"
+ "notice":""
 }
