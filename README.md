@@ -66,29 +66,6 @@ npx skills add sxpohh/information-gather-motion --skill information-gather-motio
 
 当前支持2–8张截图、1–6个功能场景、每场景1–4处重点；截图保持等比，镜头对准相对原图的区域。横屏和桌面设备外框尚未提供。低分辨率截图不会因为套用模板就变高清。
 
-## 不启动Agent也能试
-
-克隆仓库后运行；输出目录必须尚不存在：
-
-```sh
-node skills/information-gather-motion/scripts/create.mjs skills/information-gather-motion/assets/template/examples/other-product/product.json ./my-product-film
-node skills/information-gather-motion/scripts/serve.mjs ./my-product-film 4860
-```
-
-打开 http://127.0.0.1:4860/ 预览，或进入 `/focus.html` 在截图上框选重点。生成器无npm依赖，工程自带图片、脚本和字体；请通过本地HTTP访问，不要直接双击HTML。
-
-生成需要Node.js22+。编辑/导出另需Chrome或Edge、ffmpeg和huashu-motion，已验证版本为0.3.1：
-
-```sh
-npx --yes huashu-motion@0.3.1 studio ./my-product-film --no-open
-npx --yes huashu-motion@0.3.1 check ./my-product-film --samples 24
-npx --yes huashu-motion@0.3.1 sound ./my-product-film
-npx --yes huashu-motion@0.3.1 render ./my-product-film --blur 2 --workers 2
-npx --yes huashu-motion@0.3.1 qa ./my-product-film
-```
-
-有现成huashu-motion安装时可直接用其CLI，不必重复安装。模板预置音乐谱与落点音效；提供完整混音时关闭额外配乐，不需要再运行上面的 `sound` 命令。本仓库不附TTS模型，也不保证某个特定声音已经在你的环境可用。
-
 ## 验证
 
 ```sh
@@ -98,27 +75,3 @@ node skills/information-gather-motion/scripts/verify.mjs ./my-product-film <huas
 ```
 
 Node测试覆盖配置、防覆盖、素材路径、焦点范围、字幕时间和整帧时长。浏览器检查图片加载、素材哈希、字幕位置、变量修改与正倒序跳转。它们不能替代实际观看或人耳审听；需要看关键帧和正常速度全片，并结合内容判断QA阅读停顿提示。
-
-## 来源、改造范围与许可
-
-Information Gather Motion是在 [huashu-motion](https://github.com/alchaincyf/huashu-motion) 基础上扩展的产品介绍动画Skill，当前使用的上游工具版本为0.3.1。它可以单独安装，但底层工具链仍依赖上游，不宣称完全独立实现或全部代码原创。
-
-| 来源 | 具体内容 |
-|---|---|
-| huashu-motion提供的基础 | 通用动画制作工作流、OM运行辅助代码、Studio、声音处理、视频导出与检查；浏览器验收也使用其捕获工具。 |
-| 本项目新增与整理 | 信息归位镜头编排、截图与文案的对应规则、配置生成器、重点框选、本地播放器、字幕布局、素材询问和针对模板的验收流程。 |
-
-上游明确将其自身代码与文档按MIT许可发布。我们保留Huashu版权与完整MIT许可；本项目新增内容也采用MIT。GSAP仍按[GSAP Standard License](https://gsap.com/standard-license/)使用，**不是MIT**；Noto Sans SC字体按SIL OFL 1.1使用。
-
-本仓库按扩展Skill的结构维护，未建立GitHub Fork关系。MIT不要求必须点击Fork；Fork标记也不能替代版权与许可声明。详见 [来源记录与仓库关系](docs/PROVENANCE.md)、[第三方许可清单](THIRD_PARTY.md) 和 [上游许可](https://github.com/alchaincyf/huashu-motion/blob/52467f99c602b76ba86d511d37acdfe93fa1e16e/LICENSE)。
-
-## GitHub 推送记录
-
-| 时间（北京） | 改动 |
-|---|---|
-| 2026-10-27 14:55 | 升级v1.2.0：补充可选旁白制作流程，支持已有录音或现有TTS、先试听选音色、核对读音与字幕；新增旁白与背景音乐混音工具，按画面时长补齐并拒绝截断，保持原有完整混音接口与上游来源声明。 |
-| 2026-10-27 14:38 | 修复完整示例视频的观看入口：GitHub文件页无法直接预览该MP4，将README链接改为支持在线播放的jsDelivr地址，并保留原视频下载入口。 |
-| 2026-10-27 14:27 | 去掉信息归位示例动图、完整示例视频和预览图底部的提示文案，并清空示例配置的默认提示；保留README中虚构产品说明和原视频配乐，让演示画面更清爽。 |
-| 2026-10-27 14:16 | 明确本项目基于huashu-motion工作流与工具链扩展，在README前部致谢花叔并区分上游基础与本项目新增；补充来源、MIT与GitHub Fork关系说明，保留原版权和第三方许可，纠正独立Skill可能造成的完全独立实现误解及手动安装路径。 |
-| 2026-10-27 13:57 | 发布v1.1.0：将Skill和仓库更名为Information Gather Motion以突出产品动画用途，并把调用简化为一句话；缺少相关截图且未指定可读项目时先询问素材入口，已有材料先读、无法读取再补问，配置与镜头参数由Agent处理。 |
-| 2026-10-27 13:33 | 首次公开信息归位Skill v1.0.0：加入可发现的SKILL入口、Codex元数据、真实素材到镜头的制作流程、通用生成器与框选工具；只提供虚构产品示例及必要依赖，核对来源许可并排除内部路径、真实产品数据和私有配音，以便其他产品和Agent直接复用。 |
