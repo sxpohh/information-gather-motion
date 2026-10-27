@@ -2,6 +2,8 @@
 
 一句话，让Agent把你的产品做成介绍动画：**双机透视入场 → 功能前后交接 → 核心内容推近 → 结尾归拢**。
 
+**本项目基于 [huashu-motion](https://github.com/alchaincyf/huashu-motion) 的制作工作流与工具链扩展**，针对真实产品截图整理信息归位镜头、配置生成与素材询问流程。感谢上游作者花叔的开源贡献；本项目由sxpohh维护，非上游官方发布。
+
 这是一个可被Agent调用的 **Skill**，包含制作流程、镜头判断、配置工具、模板与验收方法。它不只是一个代码模板；模板是Skill随带的资源。
 
 ![信息归位示例：双机交错和重点推近](media/demo.gif)
@@ -24,7 +26,7 @@ npx skills add sxpohh/information-gather-motion --skill information-gather-motio
 npx skills add sxpohh/information-gather-motion --skill information-gather-motion -g -a codex
 ```
 
-也可以把 `skills/information-gather` 整个文件夹安装到客户端支持的Skill目录。安装后在新会话调用 `$information-gather-motion`；某些客户端需要重新载入Skill列表。
+也可以把 `skills/information-gather-motion` 整个文件夹安装到客户端支持的Skill目录。安装后在新会话调用 `$information-gather-motion`；某些客户端需要重新载入Skill列表。
 
 ## 一句话开始
 
@@ -85,15 +87,23 @@ node skills/information-gather-motion/scripts/verify.mjs ./my-product-film <huas
 
 Node测试覆盖配置、防覆盖、素材路径、焦点范围、字幕时间和整帧时长。浏览器检查图片加载、素材哈希、字幕位置、变量修改与正倒序跳转。它们不能替代实际观看或人耳审听；需要看关键帧和正常速度全片，并结合内容判断QA阅读停顿提示。
 
-## 来源与许可
+## 来源、改造范围与许可
 
-由sxpohh整理的独立Skill。原始指令、生成器、布局、时间线与虚构示例采用MIT；依赖 [huashu-motion](https://github.com/alchaincyf/huashu-motion) 提供Studio、声音和导出。不是huashu-motion官方模板或官方分支。
+Information Gather Motion是在 [huashu-motion](https://github.com/alchaincyf/huashu-motion) 基础上扩展的产品介绍动画Skill，当前使用的上游工具版本为0.3.1。它可以单独安装，但底层工具链仍依赖上游，不宣称完全独立实现或全部代码原创。
 
-GSAP仍按[GSAP Standard License](https://gsap.com/standard-license/)使用，**不是MIT**；Noto Sans SC字体按SIL OFL 1.1使用。许可与原始版权声明均保留，详见 [THIRD_PARTY.md](THIRD_PARTY.md)。
+| 来源 | 具体内容 |
+|---|---|
+| huashu-motion提供的基础 | 通用动画制作工作流、OM运行辅助代码、Studio、声音处理、视频导出与检查；浏览器验收也使用其捕获工具。 |
+| 本项目新增与整理 | 信息归位镜头编排、截图与文案的对应规则、配置生成器、重点框选、本地播放器、字幕布局、素材询问和针对模板的验收流程。 |
+
+上游明确将其自身代码与文档按MIT许可发布。我们保留Huashu版权与完整MIT许可；本项目新增内容也采用MIT。GSAP仍按[GSAP Standard License](https://gsap.com/standard-license/)使用，**不是MIT**；Noto Sans SC字体按SIL OFL 1.1使用。
+
+本仓库按扩展Skill的结构维护，未建立GitHub Fork关系。MIT不要求必须点击Fork；Fork标记也不能替代版权与许可声明。详见 [来源记录与仓库关系](docs/PROVENANCE.md)、[第三方许可清单](THIRD_PARTY.md) 和 [上游许可](https://github.com/alchaincyf/huashu-motion/blob/52467f99c602b76ba86d511d37acdfe93fa1e16e/LICENSE)。
 
 ## GitHub 推送记录
 
 | 时间（北京） | 改动 |
 |---|---|
+| 2026-10-27 14:16 | 明确本项目基于huashu-motion工作流与工具链扩展，在README前部致谢花叔并区分上游基础与本项目新增；补充来源、MIT与GitHub Fork关系说明，保留原版权和第三方许可，纠正独立Skill可能造成的完全独立实现误解及手动安装路径。 |
 | 2026-10-27 13:57 | 发布v1.1.0：将Skill和仓库更名为Information Gather Motion以突出产品动画用途，并把调用简化为一句话；缺少相关截图且未指定可读项目时先询问素材入口，已有材料先读、无法读取再补问，配置与镜头参数由Agent处理。 |
 | 2026-10-27 13:33 | 首次公开信息归位Skill v1.0.0：加入可发现的SKILL入口、Codex元数据、真实素材到镜头的制作流程、通用生成器与框选工具；只提供虚构产品示例及必要依赖，核对来源许可并排除内部路径、真实产品数据和私有配音，以便其他产品和Agent直接复用。 |
