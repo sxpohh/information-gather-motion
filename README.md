@@ -42,6 +42,18 @@ npx skills add sxpohh/information-gather-motion --skill information-gather-motio
 
 你不需要先写完整需求、选择模型或填写镜头参数。Agent负责梳理文案、安排镜头、生成配置和检查导出，也不会自动公开你的素材。
 
+## 需要配音时
+
+直接说：
+
+```text
+用 $information-gather-motion 做产品介绍动画，需要自然的普通话配音。
+```
+
+有现成录音或已选音色就沿用；需要选音色时，Agent先用环境中可用的声音制作短样音，听过再定稿。也可以只用音乐和音效。Skill不附TTS模型；本机Qwen3-TTS等可作为可选方案，并非安装前提。没有可用声音时，Agent会说明并询问可用方案。
+
+选好旁白后，Agent核听读音、按实际音频安排字幕，并可用随附的混音工具合成与影片等长的音轨。工具不会自动把文字变成声音，也不会自动识别字幕；音质、读音与字幕仍需要核对。详见 [配音流程](skills/information-gather-motion/references/narration.md)。
+
 ## 能复用什么
 
 | 项目 | 可替换或调整 |
@@ -75,7 +87,7 @@ npx --yes huashu-motion@0.3.1 render ./my-product-film --blur 2 --workers 2
 npx --yes huashu-motion@0.3.1 qa ./my-product-film
 ```
 
-有现成huashu-motion安装时可直接用其CLI，不必重复安装。模板预置音乐谱与落点音效；旁白由用户选用的音频流程提供。本仓库不附TTS模型，也不保证某个特定声音已经在你的环境可用。
+有现成huashu-motion安装时可直接用其CLI，不必重复安装。模板预置音乐谱与落点音效；提供完整混音时关闭额外配乐，不需要再运行上面的 `sound` 命令。本仓库不附TTS模型，也不保证某个特定声音已经在你的环境可用。
 
 ## 验证
 
@@ -104,6 +116,7 @@ Information Gather Motion是在 [huashu-motion](https://github.com/alchaincyf/hu
 
 | 时间（北京） | 改动 |
 |---|---|
+| 2026-10-27 14:55 | 升级v1.2.0：补充可选旁白制作流程，支持已有录音或现有TTS、先试听选音色、核对读音与字幕；新增旁白与背景音乐混音工具，按画面时长补齐并拒绝截断，保持原有完整混音接口与上游来源声明。 |
 | 2026-10-27 14:38 | 修复完整示例视频的观看入口：GitHub文件页无法直接预览该MP4，将README链接改为支持在线播放的jsDelivr地址，并保留原视频下载入口。 |
 | 2026-10-27 14:27 | 去掉信息归位示例动图、完整示例视频和预览图底部的提示文案，并清空示例配置的默认提示；保留README中虚构产品说明和原视频配乐，让演示画面更清爽。 |
 | 2026-10-27 14:16 | 明确本项目基于huashu-motion工作流与工具链扩展，在README前部致谢花叔并区分上游基础与本项目新增；补充来源、MIT与GitHub Fork关系说明，保留原版权和第三方许可，纠正独立Skill可能造成的完全独立实现误解及手动安装路径。 |
