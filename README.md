@@ -8,7 +8,7 @@
 
 ![信息归位示例：双机交错和重点推近](media/demo.gif)
 
-[完整示例视频](media/demo.mp4) · [Skill入口](skills/information-gather-motion/SKILL.md) · [配置说明](skills/information-gather-motion/references/config.md)
+[在线播放完整示例](https://cdn.jsdelivr.net/gh/sxpohh/information-gather-motion@2eed170e1297fc42abaf1aeb29ded33926dcddf0/media/demo.mp4) · [下载视频](https://raw.githubusercontent.com/sxpohh/information-gather-motion/main/media/demo.mp4) · [Skill入口](skills/information-gather-motion/SKILL.md) · [配置说明](skills/information-gather-motion/references/config.md)
 
 > 演示中的轻记是虚构产品，界面仅供说明模板用法，不代表真实上线产品。仓库不包含真实客户截图、原项目数据、配音模型或私有素材。
 
@@ -104,6 +104,7 @@ Information Gather Motion是在 [huashu-motion](https://github.com/alchaincyf/hu
 
 | 时间（北京） | 改动 |
 |---|---|
+| 2026-10-27 14:38 | 修复完整示例视频的观看入口：GitHub文件页无法直接预览该MP4，将README链接改为支持在线播放的jsDelivr地址，并保留原视频下载入口。 |
 | 2026-10-27 14:27 | 去掉信息归位示例动图、完整示例视频和预览图底部的提示文案，并清空示例配置的默认提示；保留README中虚构产品说明和原视频配乐，让演示画面更清爽。 |
 | 2026-10-27 14:16 | 明确本项目基于huashu-motion工作流与工具链扩展，在README前部致谢花叔并区分上游基础与本项目新增；补充来源、MIT与GitHub Fork关系说明，保留原版权和第三方许可，纠正独立Skill可能造成的完全独立实现误解及手动安装路径。 |
 | 2026-10-27 13:57 | 发布v1.1.0：将Skill和仓库更名为Information Gather Motion以突出产品动画用途，并把调用简化为一句话；缺少相关截图且未指定可读项目时先询问素材入口，已有材料先读、无法读取再补问，配置与镜头参数由Agent处理。 |
