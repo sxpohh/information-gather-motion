@@ -26,6 +26,8 @@
 
 已有配音的准确时间应先核对；不要为了让duration字段通过而谎填音频长度。先生成工作草案得到timing，再按真实音频调整停留、字幕和混音。
 
+需要将旁白和可选背景音乐组合成整段WAV时，参照 [narration.md](narration.md) 使用 `scripts/mix-audio.mjs`；时间、字幕和声音质量仍需实际核对。
+
 ## 工程
 
 生成后包含index.html、config.js、product.json、motion.mjs、style.css、player.html/player.js、focus.html、serve.mjs、素材、字体、许可、timing.json、sources.json和subtitles/captions.srt。可整体移动，通过本地HTTP预览；不要双击HTML（模块加载受浏览器限制）。

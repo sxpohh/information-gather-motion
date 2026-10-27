@@ -2,7 +2,7 @@
 name: information-gather-motion
 description: "Information Gather Motion：制作信息归位风格的产品介绍动画与视频。真实截图通过双机透视、前后交接、重点推近和结尾归拢呈现；适用于小程序、App与工具产品。用户可一句话调用，未提供可用素材入口时先询问，再继续制作。"
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   author: "sxpohh"
   repository: "https://github.com/sxpohh/information-gather-motion"
 ---
@@ -57,11 +57,12 @@ node "<SKILL_DIR>/scripts/serve.mjs" "<输出目录>" 4860
 
 ## 4. 声音与字幕
 
-有用户选定的声音就保留。模板不包含TTS权重或固定音色；需要旁白时使用当前可用且符合用户要求的音频工作流，先定文案再生成声音。
+先确认用户已有的声音选择，区分无旁白、已有录音或需要TTS。已选音色就沿用；需要选择且用户重视声音时先提供短样音试听，再生成完整旁白。使用本地可用TTS或用户已有音频；模板不包含TTS权重或固定音色。细节见 [references/narration.md](references/narration.md)。
 
 - 没有音频：模板提供示例音乐谱和落点音效，经 `om sound` 合成；默认字幕是镜头说明。
 - 已有完整混音：配置 `audio.src` 和 `audio.duration`；模板关闭额外配乐，不把音乐叠两遍。
 - 有旁白：按真实音频时间填写 `captions`，替代默认字幕。不要将镜头时间表说成语音识别或人工逐字听审的结果。
+- 需要制作完整混音时，可用 `scripts/mix-audio.mjs` 将旁白和可选背景音乐合成为影片时长的WAV；它不会自动生成旁白或字幕。音频过长时调整画面时长，不能截断或虚填时长。
 
 字幕保持下方居中、清晰醒目，产品核心区域在上方独立留出。单句建议10–20字，过长则断句或拆镜头；不要缩成小字。试听容易误读的词和局部衔接，音频改动同步更新字幕。
 
@@ -72,10 +73,11 @@ node "<SKILL_DIR>/scripts/serve.mjs" "<输出目录>" 4860
 ```sh
 npx --yes huashu-motion@0.3.1 studio "<输出目录>" --no-open
 npx --yes huashu-motion@0.3.1 check "<输出目录>" --samples 24
-npx --yes huashu-motion@0.3.1 sound "<输出目录>"
 npx --yes huashu-motion@0.3.1 render "<输出目录>" --blur 2 --workers 2
 npx --yes huashu-motion@0.3.1 qa "<输出目录>"
 ```
+
+无完整混音时，在 `render` 前运行 `npx --yes huashu-motion@0.3.1 sound "<输出目录>"` 生成示例配乐与音效；已提供完整混音时不要再叠加背景音乐。
 
 Studio可改名称、标题、颜色和字幕开关，支持对稳定的 `data-om-id` 批注。配置负责素材、重点和结构；Studio修改在工程的 `index.html`，重新生成不会自动合并这些修改。
 

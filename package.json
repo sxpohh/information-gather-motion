@@ -1,10 +1,10 @@
 {
   "name": "information-gather-motion",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test skills/information-gather-motion/assets/template/tests/config.test.mjs tests/release.test.mjs",
+    "test": "node --test skills/information-gather-motion/assets/template/tests/config.test.mjs tests/release.test.mjs tests/mix-audio.test.mjs",
     "check:public": "node scripts/audit-public.mjs"
   },
   "engines": {
